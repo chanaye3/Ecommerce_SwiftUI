@@ -12,17 +12,14 @@ struct HomeScreen: View {
     var body: some View {
         
         Home()
+            .background(Color(.white))
 
         }
         
-        
-    }
+            }
 #Preview {
     HomeScreen()
 }
-
-
-
 
 struct Home : View {
     @State var index  = 0
@@ -50,7 +47,7 @@ struct Home : View {
                         }
                     
               
-            }.background(Color.black.opacity(0.06))
+            }.background(Color.white.opacity(0.06))
             TabBar(index: self.$index)
         }
     }

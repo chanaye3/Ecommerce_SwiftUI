@@ -9,55 +9,29 @@ import SwiftUI
 
 struct DetailScreenView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+        
     
     var body: some View {
         ZStack{
            Rectangle()
                 .fill(.backgroundColour)
-            ScrollView(.vertical,showsIndicators: false){
                
-                    ZStack(alignment : .topTrailing){
-                        Rectangle()
-                            .fill(.white)
-                            .frame(height: 350)
-                        
-                            
-                        
-                            PhotoCarouselView(photos: photos)
-                        
-                            
-                            
-                            ZStack{
-                                Rectangle()
-                                    .fill(.gray)
-                                    .frame(width: 40,height: 20)
-                                    .cornerRadius(9)
-                                HStack{
-                                    
-                                    
-                                    Image(systemName: "photo.fill")
-                                        .resizable()
-                                        .frame(width: 12,height: 12)
-                                        .foregroundColor(.white)
-                                    Text("\(photos.count)")
-                                        .font(.system(size: 12))
-                                        .foregroundColor(.white)
-                                   
-                                }
-                            }.padding()
-                        
-                            
-                            
-                        
-                        
-                        
-                    }
+            ScrollView(.vertical,showsIndicators: false){
                 
-                    .frame(height: 350)
+                    
+                    
+                CategoriesDetailview()
+                   
+                   
+                
+                    
+                
+                    
+                    
                
             }
         }
+        .background(Color(.white))
         .navigationTitle("detail")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
@@ -78,18 +52,22 @@ struct DetailScreenView: View {
                                 }
                             }
                 ToolbarItem(placement: .principal) {
-                    HStack {
+                    
                         
                             
                         
                         Image("logoImage") // Replace with your image
                             .resizable()
                             .frame(width: 80, height: 50)
+                            .padding(.bottom)
                         
-                    }
+                    
+                    
                 }
                 
+                
             }
+            
     }
 }
 
@@ -98,3 +76,12 @@ struct DetailScreenView: View {
 #Preview {
     DetailScreenView()
 }
+
+
+
+
+
+
+
+
+

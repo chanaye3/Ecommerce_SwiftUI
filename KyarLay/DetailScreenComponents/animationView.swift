@@ -13,63 +13,65 @@ struct PhotoCarouselView: View {
     let photos: [String] // Array of photo names or URLs
     @State private var currentIndex = 0
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-//    init(){
-//        UIPageControl.appearance().pageIndicatorTintColor = .gray
-//        UIPageControl.appearance().currentPageIndicatorTintColor = .yellow
-//    }
-    var body: some View {
-        ZStack {
-            TabView {
-                ForEach(0..<photos.count, id: \.self) { index in
-                    if index == currentIndex {
-                        Image(photos[index])
-                            .resizable()
-                            .scaledToFill()
-                            
-                            .frame(width: UIScreen.main.bounds.width, height: 250)
-                            .clipped()
-                            .transition(.opacity)
-                            .animation(.easeInOut(duration: 0), value: currentIndex)
+    init(photos : [String]){
+        self.photos = photos
+        let pageControl = UIPageControl.appearance()
+        UIPageControl.appearance().pageIndicatorTintColor = .gray// Set the default page indicator color
 
-                    }
-                }
-            }.tabViewStyle(.page)
-            .frame(height: 250)
+        UIPageControl.appearance().currentPageIndicatorTintColor = .yellow // Set the current page indicator color
+        pageControl.backgroundStyle = .prominent// Optionally set the background style for better visibility
+    }
+    
+    var body: some View {
+        
             
-            ForEach(0..<photos.count, id: \.self) { index in
-                if index == currentIndex {
+        
+               
+        TabView(selection : $currentIndex) {
+            ForEach(0..<photos.count , id: \.self) { index in
+                                
+                ZStack(alignment : .bottom){
                     Image(photos[index])
                         .resizable()
                         .scaledToFill()
-                        
-                        .frame(width: UIScreen.main.bounds.width, height: 250)
+                    
+                        .frame(width: UIScreen.main.bounds.width, height: 320)
                         .clipped()
-                        .transition(.opacity)
-                        .animation(.easeInOut(duration: 0), value: currentIndex)
-
-                }
-            }
-        }
-        .onReceive(timer) { _ in
-            withAnimation {
-                currentIndex = (currentIndex + 1) % photos.count
+                        .tag(index)
+                        .edgesIgnoringSafeArea(.all)
+                    CustomPageControl(numberOfPages: photos.count, currentPage: $currentIndex)
+                }.background(Color.white)
+                                        
+                                
+                       
             }
             
-        }
+        }.frame(width: UIScreen.main.bounds.width,height: 320)
+//        .tabViewStyle(.page)
+//            .frame(width: UIScreen.main.bounds.width,height: 250)
+            .onReceive(timer) { _ in
+                        withAnimation {
+                            currentIndex = (currentIndex + 1) % photos.count
+                        }
+                    }
+       
+                        
+                    
+           
     }
 }
 
 struct animationnView: View {
-    let photos = ["image1", "image2", "image3", "image4"] // Replace with your photo names or URLs
-    
+    var photos = ["image1", "image2", "image3", "image4"] // Replace with your photo names or URLs
+   
     var body: some View {
         VStack {
-            Text("Photo Carousel")
-                .font(.largeTitle)
-                .padding()
             
-            PhotoCarouselView(photos: photos)
-                .frame(width: 200, height: 200)
+                PhotoCarouselView(photos: photos)
+                    .frame(width: 200, height: 200)
+            
+            
+            
                 
         }
     }
@@ -78,5 +80,20 @@ struct animationnView: View {
 struct animationnView_Previews: PreviewProvider {
     static var previews: some View {
         animationnView()
+    }
+}
+struct CustomPageControl: View {
+    var numberOfPages: Int
+    @Binding var currentPage: Int
+    
+    var body: some View {
+        HStack(spacing: 10) {
+            ForEach(0..<numberOfPages, id: \.self) { index in
+                Circle()
+                    .fill(index == currentPage ? Color.yellow : Color.gray)
+                    .frame(width: 12, height: 12)
+            }
+        }
+        .padding(15)
     }
 }
