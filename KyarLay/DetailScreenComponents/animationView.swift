@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct PhotoCarouselView: View {
+struct PhotoCarouselView: View { 
     
     let photos: [String] // Array of photo names or URLs
     @State private var currentIndex = 0
