@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct PhotoCarouselView: View { 
-    
+struct PhotoCarouselView: View {
+    //myfirstcomment
     let photos: [String] // Array of photo names or URLs
     @State private var currentIndex = 0
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
