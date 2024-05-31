@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct ForYouView: View {
+    @Binding var isDetailViewPresented : Bool
     var body: some View {
         VStack{
             Text("သင့်အတွက်")
@@ -20,9 +21,14 @@ struct ForYouView: View {
             
             LazyVGrid(columns : columns , spacing: 10) {
                 ForEach(forYou, id: \.self) { id in
-                    NavigationLink {
-                        DetailScreenView()
-                    } label: {
+                    //                    NavigationLink {
+                    //                        DetailScreenView( isDetailViewPresented: $isDetailViewPresented)
+                    //                    } label: {
+                    //
+                    //                    }
+                    Button(action: {
+                        isDetailViewPresented = true
+                    }, label: {
                         ZStack{
                             Rectangle()
                                 .fill(.white)
@@ -55,9 +61,9 @@ struct ForYouView: View {
                                 
                             }
                         }
-                    }
-
-                   
+                    })
+                    
+                    
                 }
                 
             }

@@ -22,7 +22,7 @@ struct LimitedText: View {
     
     var body: some View {
         Text(truncatedText)
-            .lineLimit(1) // Optional: Limit to one line
+            .lineLimit(0) // Optional: Limit to one line
             .truncationMode(.tail) // Optional: Ensure ellipsis is at the end
     }
 }

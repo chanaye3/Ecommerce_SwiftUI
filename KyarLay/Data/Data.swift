@@ -23,6 +23,14 @@ struct hotCategories : Hashable{
     let category : String
     
 }
+struct relatedProducts : Hashable{
+    let image : String
+    let imageName : String
+    
+    let price : String
+    let step : String
+    
+}
  var arrivals = [
     newArrivals(image: "BabyShirt1", imageName: "Code - 0513 (.." , price: "9500", discount: ""),
     newArrivals(image: "Shoe", imageName: "Shoe", price: "12300", discount: ""),
@@ -149,3 +157,52 @@ let photos = ["Image1",
 "Image3",
 "Image4",
 "Image5"]
+
+
+
+var related = [
+    relatedProducts(image: "BabyShirt1", imageName: "Code - 0513 (.." , price: "9500", step: "Step (2)"),
+    relatedProducts(image: "Shoe", imageName: "Shoe", price: "12300", step: "Step (2)"),
+    relatedProducts(image: "PBASpoon", imageName: "PBA free silico", price: "3000", step: "Step (2)"),
+    relatedProducts(image: "BabiMild", imageName: "Baby Mild ultra...", price: "1700", step: "Step (2)"),
+    relatedProducts(image: "AnimalMagic", imageName: "Animals magic...", price: "7300", step: "Step (2)"),
+    relatedProducts(image: "BabyShirt2", imageName: "Baby Tshirt", price: "7500", step: "Step (2)"),
+    relatedProducts(image: "Sock", imageName: "အရုပ်ပါခြေအိပ်", price: "5000", step: "Step (2)"),
+    relatedProducts(image: "skillet", imageName: "ကြက်ဉကြော်အိုး", price: "3750", step: "Step (2)"),
+    relatedProducts(image: "clothes1", imageName: "ကိုဝန်ဆောင်...", price: "17500", step: "Step (2)"),
+    relatedProducts(image: "BabySkirt", imageName: "Skirt", price: "15000", step: "Step (2)"),
+    
+    relatedProducts(image: "image1", imageName: "Code - 0513 (.." , price: "9500", step: "Step (2)"),
+    relatedProducts(image: "image2", imageName: "Shoe", price: "12300", step: "Step (2)"),
+    relatedProducts(image: "image3", imageName: "PBA free silico", price: "3000", step: "Step (2)"),
+    relatedProducts(image: "image4", imageName: "Baby Mild ultra...", price: "1700", step: "Step (2)"),
+    relatedProducts(image: "image5", imageName: "Animals magic...", price: "7300", step: "Step (2)"),
+    relatedProducts(image: "image6", imageName: "Baby Tshirt", price: "7500", step: "Step (2)"),
+    relatedProducts(image: "image7", imageName: "အရုပ်ပါခြေအိပ်", price: "5000", step: "Step (2)"),
+    relatedProducts(image: "image8", imageName: "ကြက်ဉကြော်အိုး", price: "3750", step: "Step (2)"),
+    relatedProducts(image: "Image1", imageName: "ကိုဝန်ဆောင်...", price: "17500", step: "Step (2)"),
+    relatedProducts(image: "Image2", imageName: "Skirt", price: "15000", step: "Step (2)"),
+    relatedProducts(image: "Image3", imageName: "Code - 0513 (.." , price: "9500", step: "Step (2)"),
+    relatedProducts(image: "Image4", imageName: "Shoe", price: "12300", step: "Step (2)"),
+    relatedProducts(image: "Image5", imageName: "PBA free silico", price: "3000", step: "Step (2)"),
+    relatedProducts(image: "image 1", imageName: "Baby Mild ultra...", price: "1700", step: "Step (2)"),
+    relatedProducts(image: "image 2", imageName: "Animals magic...", price: "7300", step: "Step (2)"),
+    relatedProducts(image: "image 3", imageName: "Baby Tshirt", price: "7500", step: "Step (2)"),
+    relatedProducts(image: "image 4", imageName: "အရုပ်ပါခြေအိပ်", price: "5000", step: "Step (2)"),
+    relatedProducts(image: "image 5", imageName: "ကြက်ဉကြော်အိုး", price: "3750", step: "Step (2)"),
+    relatedProducts(image: "image 6", imageName: "ကိုဝန်ဆောင်...", price: "17500", step: "Step (2)"),
+    relatedProducts(image: "image 7", imageName: "Skirt", price: "15000", step: "Step (2)"),
+    relatedProducts(image: "image 8", imageName: "Code - 0513 (.." , price: "9500", step: "Step (2)"),
+    relatedProducts(image: "image 9", imageName: "Shoe", price: "12300", step: "Step (2)"),
+    relatedProducts(image: "image 10", imageName: "PBA free silico", price: "3000", step: "Step (2)"),
+    relatedProducts(image: "Image 1", imageName: "Baby Mild ultra...", price: "1700", step: "Step (2)"),
+    relatedProducts(image: "Image 2", imageName: "Animals magic...", price: "7300", step: "Step (2)"),
+    relatedProducts(image: "Image 3", imageName: "Baby Tshirt", price: "7500", step: "Step (2)"),
+    relatedProducts(image: "Image 4", imageName: "အရုပ်ပါခြေအိပ်", price: "5000", step: "Step (2)"),
+    relatedProducts(image: "Image 5", imageName: "ကြက်ဉကြော်အိုး", price: "3750", step: "Step (2)"),
+    relatedProducts(image: "Image 6", imageName: "ကိုဝန်ဆောင်...", price: "17500", step: "Step (2)"),
+    relatedProducts(image: "Image 7", imageName: "Skirt", price: "15000", step: "Step (2)"),
+    relatedProducts(image: "Image 8", imageName: "ကြက်ဉကြော်အိုး", price: "3750", step: "Step (2)"),
+    relatedProducts(image: "Image 9", imageName: "ကိုဝန်ဆောင်...", price: "17500", step: "Step (2)"),
+    relatedProducts(image: "Image 10", imageName: "Skirt", price: "15000", step: "Step (2)"),
+]

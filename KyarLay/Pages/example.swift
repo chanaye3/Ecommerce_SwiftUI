@@ -9,7 +9,8 @@ struct HomeScreenExample: View {
             Group {
                 switch index {
                 case 0:
-                    HomeScreenView() // Replace with actual home content view
+//                    HomeScreenView(isDetailViewPresented: $) // Replace with actual home content view
+                    Text("Categories")
                 case 1:
                     Text("Categories")
                 case 2:

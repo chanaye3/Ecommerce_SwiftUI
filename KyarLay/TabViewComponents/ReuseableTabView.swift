@@ -88,3 +88,36 @@ struct ResuableTabItem : View {
         })
     }
 }
+
+
+struct Detailtabbar : View {
+    var body: some View {
+        VStack{
+            Divider()
+                 Button(action: {
+                     
+                 }, label: {
+                     
+                     ZStack{
+                         Rectangle()
+                             .fill(.yellow)
+                             .frame(height: 60)
+                             .cornerRadius(50)
+                         Text("ဈေးခြင်းတောင်းထဲထည့်မယ်")
+                             .foregroundColor(.black)
+                     }
+                    
+                 })
+                 .padding([.top],8)
+                 .padding(.horizontal,28)
+        }.background(Color.white)
+            .frame(height: 50)
+       
+
+        
+        
+    }
+}
+#Preview {
+    Detailtabbar()
+}

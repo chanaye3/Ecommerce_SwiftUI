@@ -23,6 +23,7 @@ struct HomeScreen: View {
 
 struct Home : View {
     @State var index  = 0
+    @State private var isDetailViewPresented = false
     var body: some View {
         VStack(spacing : 0){
             
@@ -33,7 +34,7 @@ struct Home : View {
                         //Change Your ViewBase on Index...
                         switch index {
                         case 0:
-                            HomeScreenView()
+                            HomeScreenView(isDetailViewPresented: $isDetailViewPresented)
                         case 1:
                             Text("")
                         case 2:
@@ -48,7 +49,12 @@ struct Home : View {
                     
               
             }.background(Color.white.opacity(0.06))
-            TabBar(index: self.$index)
+            if !isDetailViewPresented{
+                TabBar(index: self.$index)
+            }
+            
+        }.fullScreenCover(isPresented: $isDetailViewPresented) {
+            DetailScreenView(isDetailViewPresented: $isDetailViewPresented)
         }
     }
 }
@@ -69,16 +75,16 @@ struct TabBar : View {
             ResuableTabItem(index: $index, bottomIndex: 2, systemImage: "cart.circle.fill", imageWidth: 60, imageHeight: 60, imageName: "", isCircle: true)
             Spacer(minLength: 0)
 
-            ResuableTabItem(index: $index, bottomIndex: 3, systemImage: "person.3.fill" , imageWidth: 32, imageHeight: 25, imageName: "Conv...")
+            ResuableTabItem(index: $index, bottomIndex: 3, systemImage: "person.3.fill" , imageWidth: 32, imageHeight: 28, imageName: "Conv...")
             Spacer(minLength: 0)
 
-            ResuableTabItem(index: $index , bottomIndex: 4, systemImage: "lightbulb.fill", imageWidth: 25, imageHeight: 25, imageName: "Know...")
+            ResuableTabItem(index: $index , bottomIndex: 4, systemImage: "lightbulb.fill", imageWidth: 18, imageHeight: 25, imageName: "Know...")
         }
         .padding(.horizontal , 25)
         .padding(.top , 10)
         .padding(.bottom,-25)
         
-        //bottom padding only for nonsafeArea Phones...
+//        bottom padding only for nonsafeArea Phones...
 //        .padding(.bottom,UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 10 : 0)
         
     }
