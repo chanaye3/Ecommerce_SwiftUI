@@ -13,6 +13,7 @@ struct SeeMoreAndTitleView : View {
     var body: some View {
         HStack{
             Text(text)
+                .foregroundColor(.black)
                 .fontWeight(.bold)
                 .font(.system(size: 18))
             Spacer()
@@ -55,6 +56,7 @@ struct AccessoriesView : View {
                 .padding(.top,12)
             HStack{
                 Text(price)
+                    .foregroundColor(.black)
                     .fontWeight(.bold)
                 Text("ks")
                     .font(.system(size: 12))

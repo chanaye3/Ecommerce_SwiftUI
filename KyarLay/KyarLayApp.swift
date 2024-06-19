@@ -13,7 +13,7 @@ struct KyarLayApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            HomeScreen(stepperValue: .constant(1))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

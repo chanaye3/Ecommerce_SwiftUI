@@ -24,6 +24,7 @@ struct CategoriesView: View {
                             .frame(width: 100,height: 50)
                         
                         Text("အမျိုးအစားများ")
+                            .foregroundColor(.black)
                             .fontWeight(.black)
                             .font(.system(size: 20))
                         Text("ကျားလေး မှာ ရရှိနိုင်သော ပစ္စည်း အမျိုးအစား များ")

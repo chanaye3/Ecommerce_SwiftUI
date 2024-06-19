@@ -31,17 +31,23 @@ struct relatedProducts : Hashable{
     let step : String
     
 }
- var arrivals = [
-    newArrivals(image: "BabyShirt1", imageName: "Code - 0513 (.." , price: "9500", discount: ""),
-    newArrivals(image: "Shoe", imageName: "Shoe", price: "12300", discount: ""),
-    newArrivals(image: "PBASpoon", imageName: "PBA free silico", price: "3000", discount: ""),
-    newArrivals(image: "BabiMild", imageName: "Baby Mild ultra...", price: "1700", discount: ""),
-    newArrivals(image: "AnimalMagic", imageName: "Animals magic...", price: "7300", discount: ""),
-    newArrivals(image: "BabyShirt2", imageName: "Baby Tshirt", price: "7500", discount: ""),
-    newArrivals(image: "Sock", imageName: "အရုပ်ပါခြေအိပ်", price: "5000", discount: ""),
-    newArrivals(image: "skillet", imageName: "ကြက်ဉကြော်အိုး", price: "3750", discount: ""),
-    newArrivals(image: "clothes1", imageName: "ကိုဝန်ဆောင်...", price: "17500", discount: "3̶5̶0̶0̶0̶ k̶s̶"),
-    newArrivals(image: "BabySkirt", imageName: "Skirt", price: "15000", discount: "2̶0̶0̶0̶0̶ k̶s̶")
+struct paymentDetail : Identifiable{
+    var id: UUID
+    let image : String
+    let imageName : String
+    let serivceFee : String
+}
+var arrivals = [
+newArrivals(image: "BabyShirt1", imageName: "Code - 0513 (.." , price: "9500", discount: ""),
+newArrivals(image: "Shoe", imageName: "Shoe", price: "12300", discount: ""),
+newArrivals(image: "PBASpoon", imageName: "PBA free silico", price: "3000", discount: ""),
+newArrivals(image: "BabiMild", imageName: "Baby Mild ultra...", price: "1700", discount: ""),
+newArrivals(image: "AnimalMagic", imageName: "Animals magic...", price: "7300", discount: ""),
+newArrivals(image: "BabyShirt2", imageName: "Baby Tshirt", price: "7500", discount: ""),
+newArrivals(image: "Sock", imageName: "အရုပ်ပါခြေအိပ်", price: "5000", discount: ""),
+newArrivals(image: "skillet", imageName: "ကြက်ဉကြော်အိုး", price: "3750", discount: ""),
+newArrivals(image: "clothes1", imageName: "ကိုဝန်ဆောင်...", price: "17500", discount: "3̶5̶0̶0̶0̶ k̶s̶"),
+newArrivals(image: "BabySkirt", imageName: "Skirt", price: "15000", discount: "2̶0̶0̶0̶0̶ k̶s̶")
 
 ]
 var topSeller = [
@@ -100,7 +106,6 @@ var hotCategoriesNames = [
     hotCategories(name: "image8",category: "ဗိုက် Support")
     
 ]
-
 var forYou = [
     newArrivals(image: "BabyShirt1", imageName: "Code - 0513 (.." , price: "9500", discount: ""),
     newArrivals(image: "Shoe", imageName: "Shoe", price: "12300", discount: ""),
@@ -151,15 +156,11 @@ let columns: [GridItem] = [
     GridItem(.flexible()), // First column
     GridItem(.flexible())  // Second column
 ]
-
 let photos = ["Image1",
 "Image2",
 "Image3",
 "Image4",
 "Image5"]
-
-
-
 var related = [
     relatedProducts(image: "BabyShirt1", imageName: "Code - 0513 (.." , price: "9500", step: "Step (2)"),
     relatedProducts(image: "Shoe", imageName: "Shoe", price: "12300", step: "Step (2)"),
@@ -205,4 +206,12 @@ var related = [
     relatedProducts(image: "Image 8", imageName: "ကြက်ဉကြော်အိုး", price: "3750", step: "Step (2)"),
     relatedProducts(image: "Image 9", imageName: "ကိုဝန်ဆောင်...", price: "17500", step: "Step (2)"),
     relatedProducts(image: "Image 10", imageName: "Skirt", price: "15000", step: "Step (2)"),
+]
+var payment =  [
+    paymentDetail(id: UUID(), image: "dollar", imageName: "အိမ်အရောက်\nငွေချေစနစ်", serivceFee: "0.0"),
+    paymentDetail(id: UUID(), image: "waveMoney", imageName: "Wave", serivceFee: "0.0"),
+    paymentDetail(id: UUID(), image: "kbzPay", imageName: "KBZPay", serivceFee: "1.5"),
+    paymentDetail(id: UUID(), image: "kbzBank", imageName: "KBZ Bank", serivceFee: "0.0"),
+    paymentDetail(id: UUID(), image: "ayaBank", imageName: "AYA Bank", serivceFee: "0.0"),
+paymentDetail( id: UUID(),image: "yomaBank", imageName: "Yoma", serivceFee: "0.0")
 ]

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ProductView : View {
     @State var isPointSheetShowing : Bool = false
+    @Binding var showOrderView : Bool
+    @Binding var stepperValue : Int
     var image : String
     var imageName : String
     var step : String
@@ -69,7 +71,16 @@ struct ProductView : View {
                     HStack {
                         Spacer()
                         Button {
-                            
+                            // Get the saved stepper value from UserDefaults
+                                let savedStepperValue = UserDefaults.standard.integer(forKey: "stepperValue")
+                                // Add 1 to the saved stepper value
+                                let updatedStepperValue = savedStepperValue + 1
+                                // Save the updated stepper value to UserDefaults
+                                UserDefaults.standard.set(updatedStepperValue, forKey: "stepperValue")
+                                // Update the stepperValue binding
+                                stepperValue = updatedStepperValue
+                                // Toggle the showOrderView flag
+                                showOrderView.toggle()
                         } label: {
                             HStack{
                                 
@@ -85,6 +96,7 @@ struct ProductView : View {
                             .padding(12)
                             .background(Color.yellow)
                             .cornerRadius(18)
+                            
                         }
                         
                         
@@ -100,6 +112,8 @@ struct ProductView : View {
             }
             
         }
+        
         .padding(EdgeInsets(top: 12 , leading: 8, bottom: 12, trailing: 8))
+        
     }
 }

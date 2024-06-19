@@ -91,33 +91,86 @@ struct ResuableTabItem : View {
 
 
 struct Detailtabbar : View {
+    @State private var showQuantityView = false
+    @State private var stepperValue = 1
+    @State private var buttonClicks = 0
+    @State private var showOrderView = false
+    @State private var showAlert = false
+    @Binding var isMarketBasketViewPresent : Bool
+    var text : String
+   
     var body: some View {
-        VStack{
-            Divider()
-                 Button(action: {
-                     
-                 }, label: {
-                     
-                     ZStack{
-                         Rectangle()
-                             .fill(.yellow)
-                             .frame(height: 60)
-                             .cornerRadius(50)
-                         Text("ဈေးခြင်းတောင်းထဲထည့်မယ်")
-                             .foregroundColor(.black)
-                     }
-                    
-                 })
-                 .padding([.top],8)
-                 .padding(.horizontal,28)
-        }.background(Color.white)
-            .frame(height: 50)
-       
+        VStack(alignment : .center){
+            if showQuantityView && buttonClicks == 1 {
+                VStack{
+                    QuantityView(stepperValue: $stepperValue, showQuantityView: $showQuantityView)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .shadow(radius: 10)
+                        .padding(.horizontal, 8)
+                        .transition(.move(edge: .bottom))
+                        .animation(.easeInOut)
+                }
+                .edgesIgnoringSafeArea(.all)
+                            
+                        }
 
+            VStack{
+                
+                Divider()
+                     Button(action: {
+  
+                         if buttonClicks == 1 {
+                             showQuantityView = false
+                             showOrderView = true
+                             
+                             
+                         } else {
+                            
+                             showQuantityView = true
+                             buttonClicks = 1
+                         }
+                     }, label: {
+                         
+                         ZStack{
+                             Rectangle()
+                                 .fill(.yellow)
+                                 .frame(height: 60)
+                                 .cornerRadius(50)
+                             Text(text) // "ဈေးခြင်းတောင်းထဲထည့်မယ်"
+                                 .foregroundColor(.black)
+                         }
+                        
+                     })
+                     .padding([.top],8)
+                     .padding(.horizontal,28)
+
+            }.background(Color.white)
+             .frame(height: 50)
+            
+             .overlay(
+                         Group {
+                             if showOrderView {
+                                 OrderView(stepperValue: $stepperValue, isMarketBasketViewPresented: $isMarketBasketViewPresent) {
+                                     showOrderView = false
+                                 }
+                                 .transition(.opacity)
+                                 .animation(.easeInOut)
+                                 .offset(y : -350)
+                                 
+                                 .frame(height : UIScreen.main.bounds.height)
+                            
+                             }
+                         }
+             )
+        }
+
+        
         
         
     }
 }
 #Preview {
-    Detailtabbar()
+    Detailtabbar(isMarketBasketViewPresent: .constant(false), text: "")
 }

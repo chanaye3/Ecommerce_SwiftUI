@@ -64,20 +64,14 @@ struct HomeScreenView : View {
                             
                             //Categories
                             ForYouView(isDetailViewPresented: $isDetailViewPresented)
+                                .padding(4)
                             
                             
                             
                             
                             
                         }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
                     }
                 }
             }

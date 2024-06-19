@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 
 struct QuantityView : View {
-    @State var StepperValue : Int = 0
+    @Binding var stepperValue: Int
+    
+    @Binding var showQuantityView: Bool
     var body: some View {
         
         VStack{
@@ -29,7 +31,7 @@ struct QuantityView : View {
                         }
                 Spacer()
                 Button(action: {
-                    
+                    showQuantityView = false
                 }, label: {
                     Image(systemName: "multiply")
                         .resizable()
@@ -44,13 +46,16 @@ struct QuantityView : View {
 
             Stepper(
                             onIncrement: {
-                                self.StepperValue += 1
+                                self.stepperValue += 1
                             },
                             onDecrement: {
-                                self.StepperValue -= 1
+                                if self.stepperValue > 1 {
+                                    self.stepperValue -= 1
+                                }
+                               
                             },
                             label: {
-                                Text("Value: \(StepperValue)")
+                                Text("Quantity : \(stepperValue)")
                             }
                         ).foregroundColor(.black)
             
@@ -59,6 +64,6 @@ struct QuantityView : View {
     }
 }
 #Preview {
-    QuantityView()
+    QuantityView(stepperValue: .constant(0), showQuantityView: .constant(false))
 }
  

@@ -17,8 +17,10 @@ struct shopAndAccessoriesView: View {
                     .frame(height: 80)
                     .cornerRadius(10)
                 HStack{
-                    Text("ကျားလေး \n\nမိတ်ဖက်ဆိုင်များ")
+                    Text("ကျားလေး \nမိတ်ဖက်ဆိုင်များ")
+                        .foregroundColor(.black)
                         .font(.system(size: 12))
+                        .lineSpacing(10.0)
                     Spacer()
                     Image("shoppingStore")
                         .resizable()
@@ -32,8 +34,10 @@ struct shopAndAccessoriesView: View {
                     .frame(height: 80)
                     .cornerRadius(10)
                 HStack{
-                    Text("ရောင်းအားကောင်း \n\nသောပစ္စည်းများ")
+                    Text("ရောင်းအားကောင်း \nသောပစ္စည်းများ")
+                        .foregroundColor(.black)
                         .font(.system(size: 12))
+                        .lineSpacing(10.0)
                     Spacer()
                     Image("shoppingCart")
                         .resizable()

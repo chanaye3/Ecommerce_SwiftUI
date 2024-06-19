@@ -19,7 +19,7 @@ struct registerView: View {
                 VStack(alignment: .leading){
                     HStack{
                         Text("ကျားလေး အထူးအခွင့်အရေး")
-                        
+                            .foregroundColor(.black)
                             .fontWeight(.bold)
                             .font(.system(size: 16))
                         Image("popper")

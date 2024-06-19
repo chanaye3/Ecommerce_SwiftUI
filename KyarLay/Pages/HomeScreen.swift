@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct HomeScreen: View {
-
+    @Binding var stepperValue : Int
     var body: some View {
         
-        Home()
+        Home( stepperValue: $stepperValue)
             .background(Color(.white))
 
         }
         
             }
 #Preview {
-    HomeScreen()
+    HomeScreen(stepperValue: .constant(1))
 }
 
 struct Home : View {
     @State var index  = 0
     @State private var isDetailViewPresented = false
+    @Binding var stepperValue : Int
     var body: some View {
         VStack(spacing : 0){
             
@@ -54,7 +55,7 @@ struct Home : View {
             }
             
         }.fullScreenCover(isPresented: $isDetailViewPresented) {
-            DetailScreenView(isDetailViewPresented: $isDetailViewPresented)
+            DetailScreenView(isDetailViewPresented: $isDetailViewPresented, stepperValue: $stepperValue)
         }
     }
 }
@@ -83,9 +84,6 @@ struct TabBar : View {
         .padding(.horizontal , 25)
         .padding(.top , 10)
         .padding(.bottom,-25)
-        
-//        bottom padding only for nonsafeArea Phones...
-//        .padding(.bottom,UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 10 : 0)
         
     }
 }

@@ -14,6 +14,7 @@ struct ForYouView: View {
     var body: some View {
         VStack{
             Text("သင့်အတွက်")
+                .foregroundColor(.black)
                 .fontWeight(.bold)
                 .font(.system(size: 20))
                 .padding(16)
@@ -21,20 +22,11 @@ struct ForYouView: View {
             
             LazyVGrid(columns : columns , spacing: 10) {
                 ForEach(forYou, id: \.self) { id in
-                    //                    NavigationLink {
-                    //                        DetailScreenView( isDetailViewPresented: $isDetailViewPresented)
-                    //                    } label: {
-                    //
-                    //                    }
+                    
                     Button(action: {
                         isDetailViewPresented = true
                     }, label: {
-                        ZStack{
-                            Rectangle()
-                                .fill(.white)
-                                .frame(height: 300)
-                                .cornerRadius(12)
-                                .padding(2)
+                       
                             VStack{
                                 Image("\(id.image)")
                                     .resizable()
@@ -60,7 +52,11 @@ struct ForYouView: View {
                                 
                                 
                             }
-                        }
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            
+                        
+                        
                     })
                     
                     
@@ -75,4 +71,7 @@ struct ForYouView: View {
             
         }.padding(2)
     }
+}
+#Preview {
+    ForYouView(isDetailViewPresented: .constant(false))
 }

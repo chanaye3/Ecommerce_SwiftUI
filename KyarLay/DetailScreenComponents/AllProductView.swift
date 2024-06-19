@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct AllProductView : View {
+    @Binding var isNestedDetailViewPresented : Bool
+    @Binding var stepperValue : Int
+    @Binding var showOrderView: Bool // Pass the showOrderView binding
+    
+   
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Related Product")
@@ -19,12 +25,21 @@ struct AllProductView : View {
             
             VStack{
                 ForEach( related , id : \.self) { id in
-                    ProductView(
-                        image: "\(id.image)",
-                        imageName: "\(id.imageName)",
-                        step: "\(id.step)",
-                        price: "\(id.price)"
-                    )
+                    Button(action: {
+                        isNestedDetailViewPresented = true
+                        
+                    }, label: {
+                        ProductView(
+                            showOrderView: $showOrderView,
+                            stepperValue: $stepperValue,
+                            image: "\(id.image)" ,
+                            imageName: "\(id.imageName)",
+                            step: "\(id.step)",
+                            price: "\(id.price)"
+                        )
+                    })
+                    
+                    
                 }
                 
             }.background(Color.realtedBackground)
@@ -34,5 +49,5 @@ struct AllProductView : View {
 }
 
 #Preview {
-    AllProductView()
+    AllProductView(isNestedDetailViewPresented: .constant(false), stepperValue: .constant(1), showOrderView: .constant(false)) //isDetailViewPresented: .constant(false)
 }
